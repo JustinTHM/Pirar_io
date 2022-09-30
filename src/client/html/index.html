@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pirar.io</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="shortcut icon" href="/assets/logoUni.png">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <meta property="description" content="Winfo1 ">
+  <meta property="og:title" content="Winfo1">
+  <meta property="og:description" content="Winfo1">
+  <meta property="og:image" content="/assets/logoUnipng">
+</head>
+<body>
+  <canvas id="game-canvas"></canvas>
+  <div id="play-menu" class="hidden">
+    <h1>Pirar.io</h1>
+
+    <img src="/assets/transpBones.png" width="120" height="90">
+    <p>
+      Ahoi Matrose, ich wette du schaffst es nicht am leben zu bleiben.
+      <br />
+      Auf dich warten spannende Kämpfe
+    </p>
+    <hr />
+    <p>
+      <!-- <br /> -->
+      Zum Steuern benutze deine Maus oder Finger.
+
+    </p>
+    <hr />
+    <input type="text" id="username-input" placeholder="Usernamen" /><br/>
+    <button id="play-button">Los!</button>
+  </div>
+
+
+
+
+<div class="container" id="myLinks">
+  <div  id="leaderboard" class="leaderboard hidden" >
+      <div class="head" >
+
+          <img src="/assets/crown-solid.svg" class="filter-white" style="margin-bottom:15px"/>
+        <i class="fa fa-crown"></i>
+        <h1> Scoreboard</h1>
+
+      </div>
+<div class="body">
+<ol>
+<li>  <mark></mark>  <small></small>  </li>
+<li>  <mark></mark>  <small></small>  </li>
+<li>  <mark></mark>  <small></small>  </li>
+<li>  <mark></mark>  <small></small>  </li>
+<li>  <mark></mark>  <small></small>  </li>
+
+</ol>
+</div>
+  </div>
+</div>
+
+
+<div class="containerBars" id="funktion">
+
+<!--
+<embed src="/assets/bars-solid.svg" height="200" width="400">
+-->
+  <a href="#" class="icon" onclick="myFunction()">
+
+    <img src="/assets/bars-solid.svg" class="filter-white"/>
+  </a>
+</div>
+
+
+  <div id="disconnect-modal" class="hidden">
+    <div>
+      <h2>Disconnected</h2>
+      <hr />
+      <button id="reconnect-button">RECONNECT</button>
+    </div>
+  </div>
+
+
+<div id="funktionInfo">
+<!-- Infobereich -->
+<div id="info-modal">
+  <div>
+
+          <a href="#" class="icon" onclick="myFunctionInfo()">
+
+            <img src="/assets/wrench-solid.svg" class="filter-white"/>
+          </a>
+  </div>
+
+</div>
+</div>
+
+<div  id="myInfo" style="display:none">
+  <div  id="info-popup-modal" class="" >
+
+<div id="info-menu" style="overflow:scroll;overflow-x:visible; height:600px;">
+  <img onclick="myFunctionInfo()" src="/assets/close.svg" class="filter-red"/><br/>
+  <p>[Hier stehen Informationen über das Spiel]</p>
+  <br/><br/>
+<h3>Schiff Level:</h3>
+<img src="/assets/lvl2.png" width="30px" height="70px"/>
+<p>Es gibt 4 verschiedene Schiffsarten, mit jedem Levelanstieg verändert sich das Schiff<br/>
+<br/>
+Lvl 0. ab Start +Einzelschuss<br/>
+Lvl 1. ab 300 Punktent +Doppelschuss<br/>
+Lvl 2. ab 600 Punkten +Vierfachschuss<br/>
+Lvl 3. ab 1.000 Punkten +Sechsfachschuss
+<br/><br/>
+Pro Treffer gibt es 20 Punkte<br/>
+Zudem gibt es mit voranschreitender Zeit Punkte
+</p>
+<hr>
+<h3>Boost Items:</h3>
+
+  <ul>
+<li>Reperatur Heilung [Spieler wird um 100% geheilt]<img src="/assets/repair.png" width="20px" height="20px"/></li><br/>
+<li>Schneller Schießen [Kugelfeuerrate wird um 50% erhöht]<img src="/assets/boost.png" width="20px" height="20px"/></li><br/>
+<li>Schatztruhe [Punktzahl wird um +200 erhöht]
+<img src="/assets/schatz.png" width="20px" height="20px"/></li>
+</ul>
+
+<hr>
+<h3>Insel:</h3>
+Fährst du in den inneren Radius einer Insel, läufst du auf Grund.<br/>
+Dementsprechend verliert dein Schiff rasant an Lebenspunkte! (DOT-Schaden)
+<img src="/assets/DefaultInsel.png" width="70px" height="70px"/>
+<hr>
+<h3>Über:</h3>
+<p>@Wirtschaftsinformatik Projekt 1 SS22</p>
+</div>
+
+
+
+
+  </div>
+
+</div>
+
+
+
+  <script type="text/javascript">
+
+
+
+
+
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
+function myFunctionInfo() {
+  var x = document.getElementById("myInfo");
+  var start = document.getElementById("play-menu");
+
+  if (x.style.display === "block") {
+    x.style.display = "none";
+    start.style.display="block"
+  } else {
+    x.style.display = "block";
+    start.style.display="none";
+  }
+}
+    //<![CDATA[
+
+
+    /*Script für Aufklappbare Bereiche
+
+    -----------------------------------------*/
+    function show(leaderboard)
+    {
+     if (document.getElementById(leaderboard).style.display=='none')
+     {document.getElementById(leaderboard).style.display='block'; }
+     else
+     { document.getElementById(leaderboard).style.display='none'; }
+    }
+    //]]>
+    </script>
+
+</body>
+</html>
